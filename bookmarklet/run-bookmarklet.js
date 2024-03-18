@@ -2,7 +2,7 @@ javascript:(function(){
     // Contact Henry Leonardo for senderID, timezone, and webURL;
     senderID = 'SENDER_ID'; timezone = 'TIMEZONE';
     webURL = 'URL';    
-    
+
     var currentUrl = window.location.href;
     var runTitle = document.querySelector('[data-test-id="runPageTitleInput"]').value;
     var runStatus = document.querySelector('[data-test-id="runStatusBadge"]').innerText;
@@ -17,6 +17,20 @@ javascript:(function(){
         testLead: testLead,
         senderID: senderID,
         timezone: timezone
+    };
+
+    var planData = [];
+    var planDivs = document.querySelectorAll('div[data-test-id="runPageRunAssignmentRowNameContainer"]');
+
+    if (planDivs.length > 0){
+        planDivs.forEach(function(planDiv){
+            var plan = {
+                "planNumber" : planDiv.querySelector('button').textContent.trim(),
+                "planTitle" : planDiv.querySelector('.Typography_ink-main__1vYor').textContent.trim()
+            };
+            planData.push(plan);
+        });
+        data.planData = planData;
     };
 
     fetch(webURL, {
