@@ -19,6 +19,8 @@
     // Constructing the webhook URL
     var webhookUrl = webURL;
 
+    console.table(data);
+
     // Sending data to the Zapier webhook using fetch
     fetch(webhookUrl, {
             method: 'POST',
