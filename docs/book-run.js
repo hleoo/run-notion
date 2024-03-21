@@ -1,4 +1,4 @@
-(function(senderID, webURL, timezone) {
+(function sendRun(senderID, webURL, timezone) {
     // Extracting information from the page
     var currentUrl = window.location.href;
     var runTitle = document.querySelector('[data-test-id="runPageTitleInput"]').value;
