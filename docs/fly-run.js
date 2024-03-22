@@ -16,13 +16,27 @@ window.sendRun = function(senderID, timezone, webURL){
         timezone: timezone
     };
 
-    // Constructing the webhook URL
+    // Webhook URL
     var webhookUrl = webURL;
+
+    var planData = [];
+    var planDivs = document.querySelectorAll('div[data-test-id="runPageRunAssignmentRowNameContainer"]');
+
+    if (planDivs.length > 0){
+        planDivs.forEach(function(planDiv){
+            var plan = {
+                "planNumber" : planDiv.querySelector('button').textContent.trim(),
+                "planTitle" : planDiv.querySelector('.Typography_ink-main__1vYor').textContent.trim()
+            };
+            planData.push(plan);
+        });
+        data.planData = planData;
+    };
 
     console.table(data);
     console.log(webURL);
 
-        // Sending data to the Zapier webhook using fetch
+    // Send data to webhook
     fetch(webhookUrl, {
         method: 'POST',
         body: JSON.stringify(data),
