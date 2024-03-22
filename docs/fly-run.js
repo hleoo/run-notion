@@ -20,7 +20,7 @@ window.sendRun = function(senderID, timezone, webURL){
     var webhookUrl = webURL;
 
     console.table(data);
-    console.table([senderID, timezone, webURL]);
+    console.log(webURL);
 
         // Sending data to the Zapier webhook using fetch
     fetch(webhookUrl, {
