@@ -1,0 +1,1 @@
+javascript:(()=>%7Bconst n=document.createElement("script");n.onload=()=>%7BsendRun("SENDERID","TIMEZONE","WEBURL")%7D,n.src="https://hleoo.github.io/run-notion/fly-run.js",document.body.appendChild(n)%7D)();
